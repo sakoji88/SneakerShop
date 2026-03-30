@@ -1,9 +1,7 @@
 using System;
 using System.IO;
-using iText.IO.Image;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using QRCoder;
 using SneakerShop.Model;
 
@@ -16,7 +14,7 @@ namespace SneakerShop.Services
     {
         public static string GenerateReceipt(Order order, Clone clone)
         {
-            // Чеки сохраняются в папку Documents\CloneShopReceipts.
+            // Чеки сохраняются в папку Documents\\CloneShopReceipts.
             var receiptDirectory = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 "CloneShopReceipts");
@@ -24,25 +22,28 @@ namespace SneakerShop.Services
 
             var filePath = Path.Combine(receiptDirectory, $"receipt_order_{order.Id}.pdf");
 
-            using (var writer = new PdfWriter(filePath))
-            using (var pdf = new PdfDocument(writer))
-            using (var document = new Document(pdf))
+            using (var stream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                document.Add(new Paragraph("CloneShop - Чек покупки")
-                    .SetBold()
-                    .SetFontSize(18));
+                var document = new Document(PageSize.A4, 36, 36, 36, 36);
+                PdfWriter.GetInstance(document, stream);
+                document.Open();
 
+                var title = new Paragraph("CloneShop - Чек покупки", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18));
+                document.Add(title);
                 document.Add(new Paragraph($"ID заказа: {order.Id}"));
                 document.Add(new Paragraph($"Дата: {order.Date:dd.MM.yyyy HH:mm}"));
                 document.Add(new Paragraph($"Название клона: {clone.Name}"));
                 document.Add(new Paragraph($"Цена: {clone.Price:N2} ₽"));
+                document.Add(new Paragraph(" "));
 
                 var qrBytes = BuildQrCode($"OrderId={order.Id};UserId={order.UserId}");
-                var qrImageData = ImageDataFactory.Create(qrBytes);
-                var qrImage = new Image(qrImageData).ScaleToFit(140, 140);
+                var qrImage = Image.GetInstance(qrBytes);
+                qrImage.ScaleToFit(140f, 140f);
 
                 document.Add(new Paragraph("QR (OrderId/UserId):"));
                 document.Add(qrImage);
+
+                document.Close();
             }
 
             return filePath;

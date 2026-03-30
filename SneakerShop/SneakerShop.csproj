@@ -44,17 +44,8 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="itext.commons">
-      <HintPath>..\packages\itext.commons.9.1.0\lib\net461\itext.commons.dll</HintPath>
-    </Reference>
-    <Reference Include="itext.io">
-      <HintPath>..\packages\itext.io.9.1.0\lib\net461\itext.io.dll</HintPath>
-    </Reference>
-    <Reference Include="itext.kernel">
-      <HintPath>..\packages\itext.kernel.9.1.0\lib\net461\itext.kernel.dll</HintPath>
-    </Reference>
-    <Reference Include="itext.layout">
-      <HintPath>..\packages\itext.layout.9.1.0\lib\net461\itext.layout.dll</HintPath>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="QRCoder">
       <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>

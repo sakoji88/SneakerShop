@@ -111,6 +111,7 @@
     <Compile Include="ApplicationData\AppConnect.cs" />
     <Compile Include="ApplicationData\AppFrame.cs" />
     <Compile Include="ApplicationData\UserSession.cs" />
+    <Compile Include="ApplicationData\DbBootstrapper.cs" />
 
     <Compile Include="Model\CloneShopModel.Context.cs" />
     <Compile Include="Model\Entities.cs" />
@@ -148,7 +149,6 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Database\CreateCloneShop.sql" />
-    <None Include="Model\CloneShopEntities.edmx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

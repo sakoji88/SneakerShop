@@ -7,6 +7,12 @@ namespace SneakerShop.ApplicationData
     /// </summary>
     public static class AppConnect
     {
+        static AppConnect()
+        {
+            // При старте гарантируем наличие таблиц/данных в CloneShop.
+            DbBootstrapper.EnsureDatabaseAndSchema();
+        }
+
         public static CloneShopEntities Modeldb { get; } = new CloneShopEntities();
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -33,7 +32,7 @@ namespace SneakerShop.Model
     }
 
     [Table("Clones")]
-    public partial class Clone : INotifyPropertyChanged
+    public partial class Clone
     {
         public Clone()
         {
@@ -60,7 +59,6 @@ namespace SneakerShop.Model
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     [Table("Orders")]

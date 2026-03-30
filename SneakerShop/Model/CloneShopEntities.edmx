@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Учебный заглушечный EDMX-файл.
+  В Visual Studio создайте полноценную ADO.NET Entity Data Model (Database First)
+  с именем CloneShopEntities.edmx из БД CloneShop.
+-->
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <edmx:Runtime />
+  <edmx:Designer />
+</edmx:Edmx>

@@ -1,0 +1,21 @@
+<Page x:Class="SneakerShop.Pages.Authorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Authorization">
+    <Grid Style="{StaticResource PageGridStyle}">
+        <Border Style="{StaticResource CardStyle}">
+            <StackPanel>
+                <TextBlock Text="Авторизация" Style="{StaticResource HeaderTextStyle}" />
+
+                <TextBlock Text="Логин" Style="{StaticResource LabelTextStyle}" />
+                <TextBox x:Name="LoginTb" Style="{StaticResource InputStyle}" />
+
+                <TextBlock Text="Пароль" Style="{StaticResource LabelTextStyle}" />
+                <PasswordBox x:Name="PasswordPb" Style="{StaticResource InputStyle}" />
+
+                <Button Content="Войти" Style="{StaticResource AccentButtonStyle}" Click="LoginBtn_Click" />
+                <Button Content="Регистрация" Style="{StaticResource GhostButtonStyle}" Click="GoRegisterBtn_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
